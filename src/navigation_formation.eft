@@ -1,0 +1,12 @@
+>ul
+    #id = navigation
+    >li
+        .first
+    >li
+        .second
+    >li
+        .third
+    >li
+        .fourth
+    >li
+        .fifth
