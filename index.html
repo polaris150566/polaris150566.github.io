@@ -83,41 +83,87 @@
         </div>
       </div>
 
-      <div class="project-grid">
+      <div class="research-list">
 
-        <a class="project-card" href="work/rna-diffusion/">
-          <div class="project-placeholder">R</div>
-          <div class="card-content">
-            <p>Discrete Diffusion</p>
-            <h3>RNA Sequence Design</h3>
-            <span>A from-scratch generative model for RNA sequence design conditioned on 3D backbone structures.</span>
+        <a class="research-item" href="work/rna-diffusion/">
+          <div class="research-meta">
+            <span class="research-date">May 2026 &ndash; present</span>
+            <span class="research-place">CUHK</span>
+          </div>
+          <div class="research-body">
+            <p class="eyebrow">Discrete Diffusion</p>
+            <h3>RNA sequence design with discrete diffusion</h3>
+            <p class="research-summary">
+              Built a generative model from scratch for RNA sequence design conditioned on 3D
+              backbone structures. Replaced autoregressive generation with discrete diffusion,
+              so the sequence is refined iteratively rather than committed to left-to-right.
+            </p>
+            <div class="tag-list">
+              <span>Discrete diffusion</span><span>PyTorch</span><span>RNA design</span>
+            </div>
+            <span class="research-more">Read more &rarr;</span>
           </div>
         </a>
 
-        <a class="project-card" href="work/statistical-energy/">
-          <div class="project-placeholder">E</div>
-          <div class="card-content">
-            <p>Statistical Energy</p>
-            <h3>MDN Energy Functions</h3>
-            <span>Predicting statistical energy functions to evaluate and screen de novo protein designs.</span>
+        <a class="research-item" href="work/statistical-energy/">
+          <div class="research-meta">
+            <span class="research-date">Sep. 2025 &ndash; present</span>
+            <span class="research-place">USTC</span>
+          </div>
+          <div class="research-body">
+            <p class="eyebrow">Statistical Energy</p>
+            <h3>Statistical energy functions for design evaluation</h3>
+            <p class="research-summary">
+              A Mixture Density Network predicting statistical energy functions to screen
+              <em>de novo</em> protein designs, with an RNN predicting pairwise residue
+              energies autoregressively. Built the decoy-generation pipeline on SAbDab and PPI.
+            </p>
+            <div class="tag-list">
+              <span>Mixture Density Network</span><span>AlphaFold 3</span><span>ProteinMPNN</span>
+            </div>
+            <span class="research-more">Read more &rarr;</span>
           </div>
         </a>
 
-        <a class="project-card" href="work/abacus-t-mem/">
-          <div class="project-placeholder">M</div>
-          <div class="card-content">
-            <p>Inverse Folding</p>
-            <h3>ABACUS-T-Mem</h3>
-            <span>Closing the distribution gap that makes soluble-protein models fail on membrane backbones.</span>
+        <a class="research-item" href="work/abacus-t-mem/">
+          <div class="research-meta">
+            <span class="research-date">Apr. 2025 &ndash; May 2026</span>
+            <span class="research-place">USTC</span>
+          </div>
+          <div class="research-body">
+            <p class="eyebrow">Inverse Folding</p>
+            <h3>ABACUS-T-Mem: membrane protein sequence design</h3>
+            <p class="research-summary">
+              Inverse-folding models trained on soluble proteins generate hydrophilic sequences
+              through the transmembrane region &mdash; the input is out of distribution. Fine-tuned
+              ABACUS-T to close that gap: recovery improved from <strong>37.87% to 40.01%</strong>
+              on 129 independent test proteins, with the largest gain at the membrane&ndash;water
+              interface.
+            </p>
+            <div class="tag-list">
+              <span>ABACUS-T</span><span>PDBTM / TMDET</span><span>ControlNet</span><span>CFG</span>
+            </div>
+            <span class="research-more">Read more &rarr;</span>
           </div>
         </a>
 
-        <a class="project-card" href="work/igem-ecn/">
-          <div class="project-placeholder">V</div>
-          <div class="card-content">
-            <p>Synthetic Biology</p>
-            <h3>EcN VEGF Display</h3>
-            <span>Engineered bacteria displaying VEGF-binding proteins to inhibit tumor angiogenesis. iGEM 2024.</span>
+        <a class="research-item" href="work/igem-ecn/">
+          <div class="research-meta">
+            <span class="research-date">Mar. &ndash; Oct. 2024</span>
+            <span class="research-place">iGEM</span>
+          </div>
+          <div class="research-body">
+            <p class="eyebrow">Synthetic Biology</p>
+            <h3>Targeted inhibition of tumor angiogenesis</h3>
+            <p class="research-summary">
+              Engineered <em>E. coli</em> Nissle 1917 to display VEGF-binding proteins, with an
+              MMP-responsive masking peptide so the binder activates only inside the tumor
+              microenvironment. Team leader, USTC iGEM 2024.
+            </p>
+            <div class="tag-list">
+              <span>Surface display</span><span>ELISA</span><span>Finite element modeling</span>
+            </div>
+            <span class="research-more">Read more &rarr;</span>
           </div>
         </a>
 
