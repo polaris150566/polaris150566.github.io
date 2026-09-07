@@ -7,6 +7,7 @@
 <meta name="description" content="Tianyue Chen (陈天岳) is an undergraduate researcher at the University of Science and Technology of China working on deep generative models for protein and RNA design, inverse folding, and membrane protein design.">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <link rel="canonical" href="https://polaris150566.github.io/">
+<meta name="theme-color" content="#17181a">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Tianyue Chen 陈天岳">
 <meta property="og:title" content="Tianyue Chen 陈天岳 | Protein & RNA Design at USTC">
@@ -84,160 +85,43 @@
 
       <div class="project-grid">
 
-        <article class="project-card">
+        <a class="project-card" href="work/rna-diffusion/">
           <div class="project-placeholder">R</div>
           <div class="card-content">
             <p>Discrete Diffusion</p>
             <h3>RNA Sequence Design</h3>
             <span>A from-scratch generative model for RNA sequence design conditioned on 3D backbone structures.</span>
           </div>
-        </article>
+        </a>
 
-        <article class="project-card">
+        <a class="project-card" href="work/statistical-energy/">
           <div class="project-placeholder">E</div>
           <div class="card-content">
             <p>Statistical Energy</p>
             <h3>MDN Energy Functions</h3>
             <span>Predicting statistical energy functions to evaluate and screen de novo protein designs.</span>
           </div>
-        </article>
+        </a>
 
-        <article class="project-card">
+        <a class="project-card" href="work/abacus-t-mem/">
           <div class="project-placeholder">M</div>
           <div class="card-content">
             <p>Inverse Folding</p>
             <h3>ABACUS-T-Mem</h3>
             <span>Closing the distribution gap that makes soluble-protein models fail on membrane backbones.</span>
           </div>
-        </article>
+        </a>
 
-        <article class="project-card">
+        <a class="project-card" href="work/igem-ecn/">
           <div class="project-placeholder">V</div>
           <div class="card-content">
             <p>Synthetic Biology</p>
             <h3>EcN VEGF Display</h3>
             <span>Engineered bacteria displaying VEGF-binding proteins to inhibit tumor angiogenesis. iGEM 2024.</span>
           </div>
-        </article>
+        </a>
 
       </div>
-    </div>
-  </section>
-
-  <section class="section detail-section">
-    <div class="container">
-
-      <article class="detail">
-        <div class="detail-meta">
-          <p class="eyebrow">Discrete Diffusion</p>
-          <span class="detail-date">May 2026 — present</span>
-          <span class="detail-place">CUHK</span>
-        </div>
-        <div class="detail-body">
-          <h3>RNA sequence design with discrete diffusion</h3>
-          <p class="role">Research Intern &middot; PI: <a href="https://liyu95.com/" target="_blank" rel="noopener">Prof. Yu Li</a></p>
-          <p>
-            Building a generative model from scratch for RNA sequence design conditioned on 3D
-            backbone structures. Replaced conventional autoregressive generation with a discrete
-            diffusion framework, so the sequence is refined iteratively rather than committed to
-            left-to-right. Added atomic-level conditioning to improve design accuracy at
-            RNA&ndash;protein complex interfaces.
-          </p>
-          <div class="tag-list">
-            <span>PyTorch</span><span>Discrete diffusion</span><span>RNA design</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="detail">
-        <div class="detail-meta">
-          <p class="eyebrow">Statistical Energy</p>
-          <span class="detail-date">Sep. 2025 — present</span>
-          <span class="detail-place">USTC</span>
-        </div>
-        <div class="detail-body">
-          <h3>Statistical energy functions for design evaluation</h3>
-          <p class="role">Co-supervised by Prof. Haiyan Liu & Prof. Quan Chen</p>
-          <p>
-            Developing a Mixture Density Network to predict statistical energy functions for
-            screening <em>de novo</em> protein designs, with an RNN predicting pairwise residue
-            energies autoregressively. Built the data pipeline: processed SAbDab and PPI
-            structural datasets, regenerated side-chain conformations with ABACUS-T-Ab and
-            ProteinMPNN, used AlphaFold&nbsp;3 for decoy generation, and encoded pre- and
-            post-redesign structures into pairwise features as positive and negative samples.
-          </p>
-          <div class="tag-list">
-            <span>Mixture Density Network</span><span>AlphaFold 3</span><span>ProteinMPNN</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="detail">
-        <div class="detail-meta">
-          <p class="eyebrow">Inverse Folding</p>
-          <span class="detail-date">Apr. 2025 — May 2026</span>
-          <span class="detail-place">USTC</span>
-        </div>
-        <div class="detail-body">
-          <h3>ABACUS-T-Mem: membrane protein sequence design</h3>
-          <p class="role">Independent Project &middot; National College Students' Innovation Program</p>
-          <p>
-            Mainstream inverse-folding models are trained almost entirely on soluble proteins, so
-            on a membrane protein backbone they tend to generate hydrophilic sequences in the
-            transmembrane region &mdash; the input is simply out of distribution. I fine-tuned
-            ABACUS-T to close that gap. Built a training set from PDBTM using TMDET&nbsp;4.0 for
-            membrane-position annotation, encoded membrane depth via radial basis functions, and
-            reweighted the loss toward transmembrane structural features.
-          </p>
-          <p>
-            On an independent test set of 129 membrane proteins, sequence recovery improved from
-            <strong>37.87% to 40.01%</strong> (Wilcoxon signed-rank <em>p</em> < 0.001). The
-            largest gain was at the membrane&ndash;water interface, 26.7% &rarr; 30.5% &mdash; the
-            model learned membrane-specific rules rather than gaining points uniformly. Designed
-            sequences shifted toward native composition, with charged residues depleted and
-            hydrophobic residues enriched at the interface, while aqueous-exposed regions kept
-            their polar residues.
-          </p>
-          <p>
-            I also compared several strategies for injecting membrane-position information:
-            background prior injection, W/Y loss weighting, classifier-free guidance,
-            ControlNet-style side branches, adaLN, and cross-attention. Most did not help, and the
-            reason turned out to be more interesting than a win would have been. Membrane depth is
-            a weak, noisy, continuous geometric signal rather than a strong semantic label, so the
-            gap between conditional and unconditional predictions is too small to steer generation
-            reliably. Parameter-change analysis showed the ESM activation weights moving the most
-            &mdash; the model was compensating for the injected signal as if it were noise. That
-            pushed the work toward low-degree-of-freedom gating at the output logits instead.
-          </p>
-          <div class="tag-list">
-            <span>ABACUS-T</span><span>PDBTM / TMDET</span><span>ControlNet</span><span>CFG</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="detail">
-        <div class="detail-meta">
-          <p class="eyebrow">Synthetic Biology</p>
-          <span class="detail-date">Mar. — Oct. 2024</span>
-          <span class="detail-place">iGEM</span>
-        </div>
-        <div class="detail-body">
-          <h3>Tumor angiogenesis inhibition via surface-displayed VEGF antibodies</h3>
-          <p class="role">Team Leader &middot; USTC 2024 iGEM</p>
-          <p>
-            Engineered <em>Escherichia coli</em> Nissle 1917 to display VEGF-binding proteins and
-            inhibit tumor angiogenesis. Screened four surface-display systems using mCherry fusions
-            and confocal microscopy, validated VEGF-binding by ELISA, and designed an
-            MMP-responsive masking peptide so the binding protein activates only inside the tumor
-            microenvironment. Built a finite element model in Python for antigen-antibody
-            interaction kinetics; predictions matched the ELISA results.
-          </p>
-          <div class="tag-list">
-            <span>Wet lab</span><span>ELISA</span><span>Finite element modeling</span>
-          </div>
-        </div>
-      </article>
-
     </div>
   </section>
 
@@ -265,6 +149,12 @@
             because the backbone they are handed is out of distribution.
           </p>
           <p>
+            I am currently a research intern with
+            <a href="https://liyu95.com/" target="_blank" rel="noopener">Prof. Yu Li</a> at CUHK,
+            and I work with Prof. Haiyan Liu and Prof. Quan Chen at the MOE Key Laboratory for
+            Membraneless Organelles and Cellular Dynamics at USTC.
+          </p>
+          <p>
             I am preparing to apply for a Ph.D. in machine learning for structural biology.
           </p>
         </div>
@@ -278,18 +168,10 @@
           </p>
 
           <h4>Toolbox</h4>
-          <p>
-            <span class="muted">Languages</span><br>Python &middot; C &middot; JavaScript
-          </p>
-          <p>
-            <span class="muted">ML</span><br>PyTorch &middot; Fairseq &middot; Uni-Core
-          </p>
-          <p>
-            <span class="muted">Structural biology</span><br>AlphaFold 3 &middot; ProteinMPNN &middot; ABACUS-T &middot; PyMOL &middot; TMDET
-          </p>
-          <p>
-            <span class="muted">Other</span><br>Linux &middot; LaTeX &middot; Git
-          </p>
+          <p><span class="muted">Languages</span><br>Python &middot; C &middot; JavaScript</p>
+          <p><span class="muted">ML</span><br>PyTorch &middot; Fairseq &middot; Uni-Core</p>
+          <p><span class="muted">Structural biology</span><br>AlphaFold 3 &middot; ProteinMPNN &middot; ABACUS-T &middot; PyMOL &middot; TMDET</p>
+          <p><span class="muted">Other</span><br>Linux &middot; LaTeX &middot; Git</p>
 
           <h4>Awards</h4>
           <p>
@@ -322,9 +204,11 @@
       <a href="https://github.com/polaris150566" target="_blank" rel="noopener">GitHub</a>
     </div>
     <div class="footer-links">
-      <h4>Pages</h4>
-      <a href="#research">Research</a>
-      <a href="#about">About</a>
+      <h4>Research</h4>
+      <a href="work/rna-diffusion/">RNA Design</a>
+      <a href="work/statistical-energy/">Energy Functions</a>
+      <a href="work/abacus-t-mem/">ABACUS-T-Mem</a>
+      <a href="work/igem-ecn/">iGEM 2024</a>
     </div>
   </div>
   <div class="container footer-base">

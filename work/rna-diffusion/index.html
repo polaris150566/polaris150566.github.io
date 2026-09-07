@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RNA Sequence Design with Discrete Diffusion | Tianyue Chen</title>
+<meta name="description" content="A from-scratch generative model for RNA sequence design conditioned on 3D backbone structures, using discrete diffusion instead of autoregressive generation.">
+<link rel="canonical" href="https://polaris150566.github.io/work/rna-diffusion/">
+<meta name="theme-color" content="#17181a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RNA Sequence Design with Discrete Diffusion">
+<meta property="og:description" content="A from-scratch generative model for RNA sequence design conditioned on 3D backbone structures.">
+<meta property="og:url" content="https://polaris150566.github.io/work/rna-diffusion/">
+<link rel="stylesheet" href="../../assets/css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="site-logo" href="../../" aria-label="Tianyue Chen home">
+      <span>Tianyue Chen</span>
+      <span class="site-logo-secondary">陈天岳</span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="../../">Home</a>
+      <a href="../../#research" aria-current="page">Research</a>
+      <a href="../../#about">About</a>
+      <a href="https://github.com/polaris150566" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main class="content" aria-label="Content">
+
+  <section class="page-head">
+    <div class="container">
+      <a class="back-link" href="../../#research">&larr; All research</a>
+      <p class="eyebrow" style="margin-top:18px">Discrete Diffusion</p>
+      <h1>RNA sequence design with discrete diffusion</h1>
+      <p class="lede">
+        A generative model built from scratch for RNA sequence design conditioned on
+        3D backbone structures.
+      </p>
+      <div class="meta-row">
+        <span>May 2026 &ndash; present</span>
+        <span>CUHK</span>
+        <span>Research Intern</span>
+        <span>PI: Prof. Yu Li</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="project-content">
+      <div class="prose">
+
+        <h2>The problem</h2>
+        <p>
+          Inverse folding for RNA asks the same question as it does for proteins: given a
+          three-dimensional backbone, which sequence will actually fold into it? RNA makes
+          this harder than proteins in one specific way &mdash; with only four nucleotides,
+          the sequence space is narrow but the structural consequences of each choice are
+          severe, and the same fold can be reached by very different sequences.
+        </p>
+
+        <h2>Approach</h2>
+        <p>
+          Most sequence design models generate autoregressively, committing to each position
+          left-to-right. Once an early nucleotide is chosen, later positions have to work
+          around it, and the model has no way to revisit that decision.
+        </p>
+        <p>
+          I replaced that with a <strong>discrete diffusion framework</strong>. The sequence
+          starts fully masked and is denoised over multiple passes, so every position can be
+          revised in light of the others. This turns design into iterative refinement rather
+          than a single irreversible sweep, which suits a problem where nucleotide choices
+          are strongly coupled.
+        </p>
+
+        <h2>Atomic-level conditioning</h2>
+        <p>
+          RNA rarely acts alone. Much of its function happens at interfaces with proteins,
+          where individual atom positions &mdash; not just backbone geometry &mdash; determine
+          which nucleotide fits. I added atomic-level conditioning so the model sees this
+          finer structural context, which improved design accuracy specifically at
+          RNA&ndash;protein complex interfaces.
+        </p>
+
+        <h2>Status</h2>
+        <p>
+          Ongoing. The model is built and training; benchmarking and wet-lab validation are
+          in progress.
+        </p>
+
+      </div>
+
+      <aside class="side-panel">
+        <h4>Role</h4>
+        <p>Research Intern</p>
+
+        <h4>Advisor</h4>
+        <p><a href="https://liyu95.com/" target="_blank" rel="noopener" style="color:var(--accent);font-weight:700">Prof. Yu Li</a><br>
+        <span class="muted">The Chinese University of Hong Kong</span></p>
+
+        <h4>Period</h4>
+        <p>May 2026 &ndash; present</p>
+
+        <h4>Methods</h4>
+        <div class="tag-list" style="margin-top:0">
+          <span>Discrete diffusion</span>
+          <span>Inverse folding</span>
+          <span>PyTorch</span>
+          <span>RNA design</span>
+        </div>
+      </aside>
+    </div>
+
+    <div class="pager">
+      <span></span>
+      <a href="../statistical-energy/">Next: MDN Energy Functions &rarr;</a>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-author">
+      <h2>Tianyue Chen <span>陈天岳</span></h2>
+      <p>Protein and RNA design, inverse folding, and membranes that models keep getting wrong.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Contact</h4>
+      <a href="mailto:polaris150566@mail.ustc.edu.cn">Email</a>
+      <a href="https://github.com/polaris150566" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="footer-links">
+      <h4>Research</h4>
+      <a href="../rna-diffusion/">RNA Design</a>
+      <a href="../statistical-energy/">Energy Functions</a>
+      <a href="../abacus-t-mem/">ABACUS-T-Mem</a>
+      <a href="../igem-ecn/">iGEM 2024</a>
+    </div>
+  </div>
+  <div class="container footer-base">
+    &copy; 2026 Tianyue Chen
+  </div>
+</footer>
+
+</body>
+</html>

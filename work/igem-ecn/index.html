@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Targeted Inhibition of Tumor Angiogenesis | Tianyue Chen</title>
+<meta name="description" content="Engineered Escherichia coli Nissle 1917 displaying VEGF-binding proteins with an MMP-responsive masking peptide to inhibit tumor angiogenesis. USTC iGEM 2024.">
+<link rel="canonical" href="https://polaris150566.github.io/work/igem-ecn/">
+<meta name="theme-color" content="#17181a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Targeted Inhibition of Tumor Angiogenesis">
+<meta property="og:description" content="Engineered bacteria displaying VEGF-binding proteins to inhibit tumor angiogenesis. USTC iGEM 2024.">
+<meta property="og:url" content="https://polaris150566.github.io/work/igem-ecn/">
+<link rel="stylesheet" href="../../assets/css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="site-logo" href="../../" aria-label="Tianyue Chen home">
+      <span>Tianyue Chen</span>
+      <span class="site-logo-secondary">陈天岳</span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="../../">Home</a>
+      <a href="../../#research" aria-current="page">Research</a>
+      <a href="../../#about">About</a>
+      <a href="https://github.com/polaris150566" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main class="content" aria-label="Content">
+
+  <section class="page-head">
+    <div class="container">
+      <a class="back-link" href="../../#research">&larr; All research</a>
+      <p class="eyebrow" style="margin-top:18px">Synthetic Biology</p>
+      <h1>Targeted inhibition of tumor angiogenesis</h1>
+      <p class="lede">
+        Engineered <em>Escherichia coli</em> Nissle 1917 displaying VEGF-binding proteins,
+        activated only inside the tumor microenvironment.
+      </p>
+      <div class="meta-row">
+        <span>Mar. &ndash; Oct. 2024</span>
+        <span>USTC</span>
+        <span>Team Leader</span>
+        <span>iGEM 2024</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="project-content">
+      <div class="prose">
+
+        <h2>Concept</h2>
+        <p>
+          Tumors depend on new blood vessels, and VEGF is the principal signal driving that
+          growth. Systemic anti-VEGF therapy works but affects normal vasculature too.
+          <em>E.&nbsp;coli</em> Nissle 1917 has a useful property here: it preferentially
+          colonizes solid tumors, which makes it a delivery chassis that concentrates itself
+          where the drug is needed.
+        </p>
+        <p>
+          We engineered EcN to display VEGF-binding proteins on its surface, so the bacteria
+          sequester VEGF locally and inhibit angiogenesis from inside the tumor.
+        </p>
+
+        <h2>Surface display</h2>
+        <p>
+          Screened <strong>four surface-display systems</strong> by fusing each to mCherry and
+          imaging localization with confocal microscopy, then validated the VEGF-binding
+          capacity of the selected candidates by <strong>ELISA</strong>. Display efficiency and
+          retained binding activity are separate problems, so both had to be measured.
+        </p>
+
+        <h2>Tumor-responsive activation</h2>
+        <p>
+          Tumor colonization is a preference, not a guarantee, so we added a second layer of
+          specificity. The binding protein carries an <strong>MMP-responsive masking
+          peptide</strong>: matrix metalloproteinases are enriched in the tumor
+          microenvironment, so the mask is cleaved and the binder activated locally. Bacteria
+          that stray elsewhere stay inert, reducing off-target risk.
+        </p>
+
+        <h2>Modeling</h2>
+        <p>
+          Built a <strong>finite element model in Python</strong> simulating
+          antigen-antibody interaction kinetics to estimate inhibition efficiency. Model
+          predictions were consistent with the experimental ELISA results, which gave us a
+          way to reason about binder density and diffusion without running every condition
+          at the bench.
+        </p>
+
+        <h2>Role</h2>
+        <p>
+          Team leader. Led experimental design and execution across surface-display screening,
+          the activation mechanism, and modeling.
+        </p>
+
+      </div>
+
+      <aside class="side-panel">
+        <h4>Role</h4>
+        <p>Team Leader<br><span class="muted">USTC iGEM 2024</span></p>
+
+        <h4>Period</h4>
+        <p>Mar. &ndash; Oct. 2024</p>
+
+        <h4>Chassis</h4>
+        <p><em>E. coli</em> Nissle 1917</p>
+
+        <h4>Methods</h4>
+        <div class="tag-list" style="margin-top:0">
+          <span>Surface display</span>
+          <span>ELISA</span>
+          <span>Confocal microscopy</span>
+          <span>mCherry fusion</span>
+          <span>Finite element modeling</span>
+        </div>
+      </aside>
+    </div>
+
+    <div class="pager">
+      <a href="../abacus-t-mem/">&larr; Previous: ABACUS-T-Mem</a>
+      <span></span>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-author">
+      <h2>Tianyue Chen <span>陈天岳</span></h2>
+      <p>Protein and RNA design, inverse folding, and membranes that models keep getting wrong.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Contact</h4>
+      <a href="mailto:polaris150566@mail.ustc.edu.cn">Email</a>
+      <a href="https://github.com/polaris150566" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="footer-links">
+      <h4>Research</h4>
+      <a href="../rna-diffusion/">RNA Design</a>
+      <a href="../statistical-energy/">Energy Functions</a>
+      <a href="../abacus-t-mem/">ABACUS-T-Mem</a>
+      <a href="../igem-ecn/">iGEM 2024</a>
+    </div>
+  </div>
+  <div class="container footer-base">
+    &copy; 2026 Tianyue Chen
+  </div>
+</footer>
+
+</body>
+</html>
