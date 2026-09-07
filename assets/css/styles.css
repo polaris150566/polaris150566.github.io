@@ -85,7 +85,26 @@ img { display: block; max-width: 100%; }
 
 /* ---------- hero ---------- */
 
-.hero { padding: 52px 0 40px; }
+/* ---------- cover banner ---------- */
+
+.cover { padding: 26px 0 0; }
+
+.cover-frame {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.cover-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- hero ---------- */
+
+.hero { padding: 32px 0 40px; }
 
 .hero-inner {
   align-items: center;
@@ -275,6 +294,29 @@ img { display: block; max-width: 100%; }
   font-size: 0.9rem;
   font-weight: 750;
   margin-top: 14px;
+}
+
+/* ---------- project figures ---------- */
+
+.project-figure {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  margin: 0 0 30px;
+  overflow: hidden;
+  padding: 14px;
+}
+
+.project-figure img {
+  border-radius: 5px;
+  height: auto;
+  width: 100%;
+}
+
+.project-figure figcaption {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 10px;
 }
 
 /* ---------- about ---------- */
