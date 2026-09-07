@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research | Tianyue Chen 陈天岳</title>
+<meta name="description" content="Research projects by Tianyue Chen: RNA sequence design with discrete diffusion, statistical energy functions, membrane protein sequence design, and synthetic biology.">
+<link rel="canonical" href="https://polaris150566.github.io/research/">
+<meta name="theme-color" content="#15181c">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Research | Tianyue Chen">
+<meta property="og:description" content="Inverse folding, discrete diffusion, and membrane protein design.">
+<meta property="og:url" content="https://polaris150566.github.io/research/">
+<link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="site-logo" href="../" aria-label="Tianyue Chen home">
+      <span>Tianyue Chen</span>
+      <span class="site-logo-secondary">陈天岳</span>
+    </a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="../">Home</a>
+      <a href="./" aria-current="page">Research</a>
+      <a href="../cv/">CV</a>
+      <a href="../contact/">Contact</a>
+      <a href="https://github.com/polaris150566" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main class="content" aria-label="Content">
+
+  <section class="page-head">
+    <div class="container">
+      <p class="eyebrow">Research</p>
+      <h1>Research</h1>
+      <p class="lede">
+        Inverse folding, discrete diffusion, and the cases where models trained on soluble
+        proteins stop working.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:26px">
+    <div class="container">
+      <div class="research-list">
+
+        <a class="research-item" href="../work/rna-diffusion/">
+          <div class="research-thumb">
+            <img src="../assets/works/rna-diffusion/model.jpg" alt=""
+                 onerror="this.parentNode.classList.add('is-empty');this.parentNode.setAttribute('data-letter','R');this.remove();">
+          </div>
+          <div class="research-body">
+            <div class="research-meta">
+              <span class="research-date">May 2026 &ndash; present</span>
+              <span class="research-place">CUHK</span>
+            </div>
+            <p class="eyebrow">Discrete Diffusion</p>
+            <h3>RNA sequence design with discrete diffusion</h3>
+            <p class="research-summary">
+              Built a generative model from scratch for RNA sequence design conditioned on 3D
+              backbone structures. Replaced autoregressive generation with discrete diffusion,
+              so the sequence is refined iteratively rather than committed to left-to-right.
+            </p>
+            <div class="tag-list">
+              <span>Discrete diffusion</span><span>PyTorch</span><span>RNA design</span>
+            </div>
+            <span class="research-more">Read more &rarr;</span>
+          </div>
+        </a>
+
+        <a class="research-item" href="../work/statistical-energy/">
+          <div class="research-thumb is-empty" data-letter="E">
+            <img src="../assets/works/statistical-energy/cover.jpg" alt=""
+                 onerror="this.parentNode.classList.add('is-empty');this.parentNode.setAttribute('data-letter','E');this.remove();">
+          </div>
+          <div class="research-body">
+            <div class="research-meta">
+              <span class="research-date">Sep. 2025 &ndash; present</span>
+              <span class="research-place">USTC</span>
+            </div>
+            <p class="eyebrow">Statistical Energy</p>
+            <h3>Statistical energy functions for design evaluation</h3>
+            <p class="research-summary">
+              A Mixture Density Network predicting statistical energy functions to screen
+              <em>de novo</em> protein designs, with an RNN predicting pairwise residue
+              energies autoregressively. Built the decoy-generation pipeline on SAbDab and PPI.
+            </p>
+            <div class="tag-list">
+              <span>Mixture Density Network</span><span>AlphaFold 3</span><span>ProteinMPNN</span>
+            </div>
+            <span class="research-more">Read more &rarr;</span>
+          </div>
+        </a>
+
+        <a class="research-item" href="../work/abacus-t-mem/">
+          <div class="research-thumb is-empty" data-letter="M">
+            <img src="../assets/works/abacus-t-mem/cover.jpg" alt=""
+                 onerror="this.parentNode.classList.add('is-empty');this.parentNode.setAttribute('data-letter','M');this.remove();">
+          </div>
+          <div class="research-body">
+            <div class="research-meta">
+              <span class="research-date">Apr. 2025 &ndash; May 2026</span>
+              <span class="research-place">USTC</span>
+            </div>
+            <p class="eyebrow">Inverse Folding</p>
+            <h3>ABACUS-T-Mem: membrane protein sequence design</h3>
+            <p class="research-summary">
+              Inverse-folding models trained on soluble proteins generate hydrophilic sequences
+              through the transmembrane region &mdash; the input is out of distribution.
+              Fine-tuned ABACUS-T to close that gap: recovery improved from
+              <strong>37.87% to 40.01%</strong> on 129 independent test proteins, with the
+              largest gain at the membrane&ndash;water interface.
+            </p>
+            <div class="tag-list">
+              <span>ABACUS-T</span><span>PDBTM / TMDET</span><span>ControlNet</span><span>CFG</span>
+            </div>
+            <span class="research-more">Read more &rarr;</span>
+          </div>
+        </a>
+
+        <a class="research-item" href="../work/igem-ecn/">
+          <div class="research-thumb is-empty" data-letter="V">
+            <img src="../assets/works/igem-ecn/cover.jpg" alt=""
+                 onerror="this.parentNode.classList.add('is-empty');this.parentNode.setAttribute('data-letter','V');this.remove();">
+          </div>
+          <div class="research-body">
+            <div class="research-meta">
+              <span class="research-date">Mar. &ndash; Oct. 2024</span>
+              <span class="research-place">iGEM</span>
+            </div>
+            <p class="eyebrow">Synthetic Biology</p>
+            <h3>Targeted inhibition of tumor angiogenesis</h3>
+            <p class="research-summary">
+              Engineered <em>E. coli</em> Nissle 1917 to display VEGF-binding proteins, with an
+              MMP-responsive masking peptide so the binder activates only inside the tumor
+              microenvironment. Team leader, USTC iGEM 2024.
+            </p>
+            <div class="tag-list">
+              <span>Surface display</span><span>ELISA</span><span>Finite element modeling</span>
+            </div>
+            <span class="research-more">Read more &rarr;</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-author">
+      <h2>Tianyue Chen <span>陈天岳</span></h2>
+      <p>Protein and RNA design, inverse folding, and membranes that models keep getting wrong.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Pages</h4>
+      <a href="../">Home</a>
+      <a href="./">Research</a>
+      <a href="../cv/">CV</a>
+      <a href="../contact/">Contact</a>
+    </div>
+    <div class="footer-links">
+      <h4>Research</h4>
+      <a href="../work/rna-diffusion/">RNA Design</a>
+      <a href="../work/statistical-energy/">Energy Functions</a>
+      <a href="../work/abacus-t-mem/">ABACUS-T-Mem</a>
+      <a href="../work/igem-ecn/">iGEM 2024</a>
+    </div>
+  </div>
+  <div class="container footer-base">
+    &copy; 2026 Tianyue Chen
+  </div>
+</footer>
+
+</body>
+</html>

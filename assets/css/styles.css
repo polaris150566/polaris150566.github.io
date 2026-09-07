@@ -245,8 +245,8 @@ img { display: block; max-width: 100%; }
 .research-item {
   border-top: 1px solid var(--line);
   display: grid;
-  gap: 40px;
-  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 28px;
+  grid-template-columns: 220px minmax(0, 1fr);
   padding: 30px 0;
   transition: border-color 160ms ease;
 }
@@ -798,4 +798,114 @@ img { display: block; max-width: 100%; }
   .cv-entry-head { flex-direction: column; gap: 6px; }
   .cv-date { margin-top: 0; }
   .cv-lead { font-size: 1.05rem; }
+}
+/* ---------- research thumbnails ---------- */
+
+.research-thumb {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--surface);
+  aspect-ratio: 4 / 3;
+  transition: border-color 180ms ease;
+}
+
+.research-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.research-thumb.is-empty {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.research-thumb.is-empty::after {
+  content: attr(data-letter);
+  color: var(--accent);
+  font-size: 3.4rem;
+  font-weight: 850;
+  line-height: 1;
+}
+
+.research-item:hover .research-thumb { border-color: var(--accent); }
+
+.research-item .research-meta {
+  flex-direction: row;
+  gap: 10px;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+/* ---------- contact page ---------- */
+
+.contact-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.contact-card {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  transition: border-color 180ms ease, transform 180ms ease;
+}
+
+.contact-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+.contact-card h3 {
+  font-size: 1.16rem;
+  font-weight: 800;
+  line-height: 1.3;
+  margin: 0 0 10px;
+  word-break: break-all;
+}
+
+.contact-card p:not(.eyebrow) { color: var(--muted); margin: 0 0 16px; }
+
+.contact-card span { color: var(--accent); font-weight: 760; margin-top: auto; }
+
+.contact-detail {
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 34px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 40px;
+  padding-top: 32px;
+}
+
+.contact-detail h4 {
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 820;
+  letter-spacing: 0.04em;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+}
+
+.contact-detail p { color: var(--muted); margin: 0; }
+
+.contact-detail a { color: var(--text); font-weight: 600; }
+.contact-detail a:hover { color: var(--accent); }
+
+/* ---------- home cv block ---------- */
+
+.home-cv { border-top: 1px solid var(--line); margin-top: 8px; }
+
+@media (max-width: 900px) {
+  .research-item { grid-template-columns: 132px minmax(0, 1fr) !important; gap: 20px !important; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .contact-detail { grid-template-columns: 1fr; gap: 24px; }
+}
+
+@media (max-width: 560px) {
+  .research-item { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .research-thumb { max-width: 200px; }
+  .research-thumb.is-empty::after { font-size: 2.6rem; }
 }
