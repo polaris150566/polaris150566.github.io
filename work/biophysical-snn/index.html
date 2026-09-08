@@ -96,6 +96,40 @@
           discrete spike.
         </p>
 
+        <h2>Training dynamics: fast sparsification, converged weights</h2>
+        <p>
+          Training reshapes the network quickly. Within the first few hundred steps, both the
+          weights and the spike rates sparsify: the spike rasters of the excitatory population
+          thin out, and the membrane potentials of individual neurons settle into a narrower,
+          more selective regime.
+        </p>
+
+        <figure class="project-figure is-plate">
+          <img src="../../assets/works/biophysical-snn/training-sparsity.webp"
+               alt="Spike rasters of all excitatory neurons (top) and membrane potential traces of the first 20 neurons (bottom) at 0, 120, 300, and 600 training steps"
+               onerror="this.parentNode.remove();">
+          <figcaption>
+            Top: spikes of all excitatory neurons; bottom: membrane potentials of the first 20
+            neurons &mdash; at 0 / 120 / 300 / 600 training steps. Activity sparsifies fast.
+          </figcaption>
+        </figure>
+
+        <p>
+          With continued training, the feedforward weights converge onto patterns of specific
+          digits &mdash; each neuron ends up selective for a particular input structure rather
+          than a diffuse mixture.
+        </p>
+
+        <figure class="project-figure is-plate">
+          <img src="../../assets/works/biophysical-snn/weight-convergence.webp"
+               alt="Feedforward weight maps at 0, 600, 2610, and 4200 training steps, converging onto digit-specific patterns"
+               onerror="this.parentNode.remove();">
+          <figcaption>
+            Feedforward weights at 0 / 600 / 2610 / 4200 steps, gradually converging onto
+            digit-specific patterns.
+          </figcaption>
+        </figure>
+
         <h2>Dendritic balance network</h2>
         <p>
           The third part asks what dendritic structure buys you. In the dendritic balance
