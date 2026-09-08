@@ -1076,3 +1076,15 @@ h1, h2, h3,
 @media (max-width: 700px) {
   .figure-pair { grid-template-columns: 1fr; }
 }
+
+/* ---------- zoomable figures ---------- */
+
+.project-figure a { display: block; }
+
+.project-figure a img { transition: opacity 160ms ease; }
+
+.project-figure a:hover img { opacity: 0.88; }
+
+.project-figure.is-plate figcaption a { color: #1f6fb8; font-weight: 600; }
+
+.project-figure.is-plate figcaption strong { color: #2c3238; }
