@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Biophysical Principles for Sparse, Learnable SNNs | Tianyue Chen</title>
+<meta name="description" content="From conductance-based neuron models to a spiking neural network pipeline and a dendritic balance network: biophysical principles for sparse, efficient, learnable SNNs.">
+<link rel="canonical" href="https://polaris150566.github.io/work/biophysical-snn/">
+<meta name="theme-color" content="#15181c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Biophysical Principles for Sparse, Learnable SNNs">
+<meta property="og:description" content="From ion-channel dynamics to efficient spiking models: a pipeline from sensory input to learned, sparse representations.">
+<meta property="og:url" content="https://polaris150566.github.io/work/biophysical-snn/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="site-logo" href="../../" aria-label="Tianyue Chen home">
+      <span>Tianyue Chen</span>
+      <span class="site-logo-secondary">陈天岳</span>
+    </a>
+        <nav class="site-nav" aria-label="Main navigation">
+      <a href="../../">Home</a>
+      <a href="../../research/" aria-current="page">Projects</a>
+      <a href="../../cv/">CV</a>
+      <a href="../../contact/">Contact</a>
+      <a href="https://github.com/polaris150566" target="_blank" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main class="content" aria-label="Content">
+
+  <section class="page-head">
+    <div class="container">
+      <a class="back-link" href="../../#research">&larr; All research</a>
+      <p class="eyebrow" style="margin-top:18px">Computational Neuroscience</p>
+      <h1>Biophysical principles for sparse, learnable spiking neural networks</h1>
+      <p class="lede">
+        From ion-channel dynamics to efficient spiking models &mdash; a pipeline that
+        runs from sensory input to learned, sparse representations.
+      </p>
+      <div class="meta-row">
+        <span>2026</span>
+        <span>USTC</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="project-content">
+      <div class="prose">
+
+        <figure class="project-figure is-plate">
+          <img src="../../assets/works/biophysical-snn/cover.webp"
+               alt="Graphical abstract: biophysical neuron models, spiking neural network pipeline, and dendritic balance network"
+               onerror="this.parentNode.remove();">
+          <figcaption>
+            Graphical abstract: biophysical principles &rarr; sparse, efficient, learnable SNNs.
+          </figcaption>
+        </figure>
+
+        <h2>From ion channels to spiking models</h2>
+        <p>
+          The starting point is the biophysics of the membrane. I built conductance-based
+          neuron models with Na<sup>+</sup>, K<sup>+</sup>, Ca<sup>2+</sup>, and leak
+          channels, where the membrane potential follows the conductance-based equation and
+          each current carries its own gating dynamics and reversal potential. Simulating
+          V(t) reproduces the familiar spiking behavior &mdash; and also shows how expensive
+          full Hodgkin&ndash;Huxley dynamics are once you want a whole network.
+        </p>
+        <p>
+          That motivates the model-abstraction ladder: from the biophysical HH model down to
+          reduced integrate-and-fire variants (LIF, QIF, EIF), trading ion-channel detail for
+          efficiency while keeping the spiking behavior that matters for computation.
+        </p>
+
+        <h2>A spiking pipeline from sensory input to readout</h2>
+        <p>
+          On top of these neuron models I built an end-to-end spiking pipeline for MNIST.
+          A 28&times;28 input image is converted into spike trains by Poisson rate coding and
+          fed into an E/I spiking encoder, which produces a sparse latent activity pattern
+          Z(t). A decoder/readout stage turns that activity into class scores, with an
+          argmax classifier making the final decision from spike counts.
+        </p>
+        <p>
+          The network classifies with temporal spike encoding rather than dense analog
+          activations &mdash; the E-layer spikes stay sparse in time, and the readout is
+          purely spike-based. This from-scratch pipeline reaches ~64% MNIST accuracy, a
+          baseline that reflects how much harder learning becomes when every signal is a
+          discrete spike.
+        </p>
+
+        <h2>Dendritic balance network</h2>
+        <p>
+          The third part asks what dendritic structure buys you. In the dendritic balance
+          network, each dendritic compartment integrates feedforward drive and recurrent
+          inhibition, u<sub>j</sub><sup>i</sup>&nbsp;= F<sub>ji</sub>x<sub>i</sub> +
+          &Sigma;<sub>k</sub> W<sub>jk</sub><sup>i</sup>z<sub>k</sub>, under a local
+          excitatory&ndash;inhibitory balance condition (u&nbsp;&asymp;&nbsp;0). Inhibitory
+          neurons keep dendritic currents near zero, so the soma only spikes for inputs that
+          genuinely add information &mdash; the latent spikes Z(t) stay sparse, and a linear
+          decoder D can reconstruct the input from them.
+        </p>
+        <p>
+          The result is a sparse, disentangled code: learned dendritic features separate into
+          clean receptive fields (horizontal and vertical bar features), with no mixed
+          features &mdash; each neuron owns a distinct structure in the input rather than a
+          blend of several.
+        </p>
+
+        <h2>Local, activity-dependent learning</h2>
+        <p>
+          Both sets of weights learn from purely local signals. Inhibitory plasticity
+          follows &Delta;W&nbsp;&prop;&nbsp;&minus;&eta;z<sub>k</sub>u<sub>j</sub><sup>i</sup>,
+          which enforces the local EI balance; feedforward plasticity follows
+          &Delta;F&nbsp;&prop;&nbsp;z<sub>j</sub>(x<sub>i</sub>&nbsp;&minus;&nbsp;x&#770;<sub>i</sub>),
+          driven by the reconstruction error. No global error signal is required &mdash;
+          balance and reconstruction fall out of rules each synapse can compute on its own.
+        </p>
+
+        <h2>Takeaway</h2>
+        <p>
+          Biophysical principles &mdash; conductance-based dynamics, EI balance, local
+          plasticity &mdash; are not just realism for its own sake. They give spiking
+          networks a route to representations that are sparse, efficient, and learnable at
+          the same time.
+        </p>
+
+      </div>
+
+      <aside class="side-panel">
+        <h4>Period</h4>
+        <p>2026</p>
+
+        <h4>Affiliation</h4>
+        <p>USTC</p>
+
+        <h4>Methods</h4>
+        <div class="tag-list" style="margin-top:0">
+          <span>Hodgkin&ndash;Huxley</span>
+          <span>LIF / QIF / EIF</span>
+          <span>Poisson rate coding</span>
+          <span>E/I balance</span>
+          <span>Sparse coding</span>
+          <span>Local plasticity</span>
+        </div>
+      </aside>
+    </div>
+
+    <div class="pager">
+      <span></span>
+      <a href="../rna-diffusion/">Next: RNA Design with Discrete Diffusion &rarr;</a>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-author">
+      <h2>Tianyue Chen <span>陈天岳</span></h2>
+      <p>Protein and RNA design, inverse folding, and membranes that models keep getting wrong.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Contact</h4>
+      <a href="mailto:polaris150566@mail.ustc.edu.cn">Email</a>
+      <a href="https://github.com/polaris150566" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="footer-links">
+      <h4>Projects</h4>
+      <a href="../biophysical-snn/">Biophysical SNNs</a>
+      <a href="../rna-diffusion/">RNA Design</a>
+      <a href="../statistical-energy/">Energy Functions</a>
+      <a href="../abacus-t-mem/">ABACUS-T-Mem</a>
+      <a href="../igem-ecn/">iGEM 2024</a>
+    </div>
+  </div>
+  <div class="container footer-base">
+    &copy; 2026 Tianyue Chen
+  </div>
+</footer>
+
+</body>
+</html>
