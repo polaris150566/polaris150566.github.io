@@ -15,6 +15,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/css/styles.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+        onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'\\(',right:'\\)',display:false}]});"></script>
 </head>
 <body>
 
@@ -70,9 +74,22 @@
           The starting point is the biophysics of the membrane. I built conductance-based
           neuron models with Na<sup>+</sup>, K<sup>+</sup>, Ca<sup>2+</sup>, and leak
           channels, where the membrane potential follows the conductance-based equation and
-          each current carries its own gating dynamics and reversal potential. Simulating
-          V(t) reproduces the familiar spiking behavior &mdash; and also shows how expensive
-          full Hodgkin&ndash;Huxley dynamics are once you want a whole network.
+          each current carries its own gating dynamics and reversal potential.
+        </p>
+
+        <p>$$
+        \begin{aligned}
+        C_m \frac{dV}{dt} &= -(I_{Na} + I_K + I_{Ca} + I_L) + I_{ext} \\
+        I_{Na} &= \bar{g}_{Na}\, m^3 h\, (V - E_{Na}) \\
+        I_{K}  &= \bar{g}_{K}\, n^4 (V - E_{K}) \\
+        I_{Ca} &= \bar{g}_{Ca}\, a(V)\, (V - E_{Ca}) \\
+        I_{L}  &= \bar{g}_{L}\, (V - E_{L})
+        \end{aligned}
+        $$</p>
+
+        <p>
+          Simulating \(V(t)\) reproduces the familiar spiking behavior &mdash; and also shows
+          how expensive full Hodgkin&ndash;Huxley dynamics are once you want a whole network.
         </p>
         <p>
           That motivates the model-abstraction ladder: from the biophysical HH model down to
@@ -134,12 +151,18 @@
         <p>
           The third part asks what dendritic structure buys you. In the dendritic balance
           network, each dendritic compartment integrates feedforward drive and recurrent
-          inhibition, u<sub>j</sub><sup>i</sup>&nbsp;= F<sub>ji</sub>x<sub>i</sub> +
-          &Sigma;<sub>k</sub> W<sub>jk</sub><sup>i</sup>z<sub>k</sub>, under a local
-          excitatory&ndash;inhibitory balance condition (u&nbsp;&asymp;&nbsp;0). Inhibitory
+          inhibition:
+        </p>
+
+        <p>$$
+        u_j^i = F_{ji}\, x_i + \sum_k W_{jk}^i\, z_k, \qquad \text{local EI balance: } u \approx 0
+        $$</p>
+
+        <p>
+          Inhibitory
           neurons keep dendritic currents near zero, so the soma only spikes for inputs that
-          genuinely add information &mdash; the latent spikes Z(t) stay sparse, and a linear
-          decoder D can reconstruct the input from them.
+          genuinely add information &mdash; the latent spikes \(Z(t)\) stay sparse, and a linear
+          decoder \(D\) can reconstruct the input from them.
         </p>
         <p>
           The result is a sparse, disentangled code: learned dendritic features separate into
@@ -151,10 +174,23 @@
         <h2>Local, activity-dependent learning</h2>
         <p>
           Both sets of weights learn from purely local signals. Inhibitory plasticity
-          follows &Delta;W&nbsp;&prop;&nbsp;&minus;&eta;z<sub>k</sub>u<sub>j</sub><sup>i</sup>,
-          which enforces the local EI balance; feedforward plasticity follows
-          &Delta;F&nbsp;&prop;&nbsp;z<sub>j</sub>(x<sub>i</sub>&nbsp;&minus;&nbsp;x&#770;<sub>i</sub>),
-          driven by the reconstruction error. No global error signal is required &mdash;
+          enforces the local EI balance:
+        </p>
+
+        <p>$$
+        \Delta W \;\propto\; -\eta\, z_k\, u_j^i
+        $$</p>
+
+        <p>
+          while feedforward plasticity is driven by the reconstruction error:
+        </p>
+
+        <p>$$
+        \Delta F \;\propto\; z_j\, (x_i - \hat{x}_i)
+        $$</p>
+
+        <p>
+          No global error signal is required &mdash;
           balance and reconstruction fall out of rules each synapse can compute on its own.
         </p>
 
