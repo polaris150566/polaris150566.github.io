@@ -1058,3 +1058,21 @@ h1, h2, h3,
 .contact-detail h4,
 .contact-list .contact-label,
 .cv-facts dt { letter-spacing: 0.06em; }
+
+/* ---------- white plate for line-art / structure figures ---------- */
+
+.project-figure.is-plate { background: #ffffff; }
+.project-figure.is-plate figcaption { color: #5a6068; }
+
+.figure-pair {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 0 0 30px;
+}
+
+.figure-pair .project-figure { margin: 0; }
+
+@media (max-width: 700px) {
+  .figure-pair { grid-template-columns: 1fr; }
+}

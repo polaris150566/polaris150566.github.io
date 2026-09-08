@@ -58,11 +58,11 @@
     <div class="project-content">
       <div class="prose">
 
-        <figure class="project-figure">
+        <figure class="project-figure is-plate">
           <img src="../../assets/works/rna-diffusion/model.jpg"
-               alt="Model architecture overview"
+               alt="RiboDiffusion2 pipeline overview"
                onerror="this.parentNode.remove();">
-          <figcaption>Model overview.</figcaption>
+          <figcaption>Pipeline overview: all-atom RNA sequence design conditioned on structure.</figcaption>
         </figure>
 
         <h2>The problem</h2>
@@ -88,6 +88,22 @@
           are strongly coupled.
         </p>
 
+        <h2>Architecture</h2>
+        <p>
+          The model uses a discrete DDPM formulation to avoid prior-distribution mismatch, a
+          SUNDAE-style decoder to sidestep exposure bias, and an all-atom representation so
+          interface geometry is available to the sequence decision.
+        </p>
+
+        <figure class="project-figure is-plate">
+          <img src="../../assets/works/rna-diffusion/architecture.jpg"
+               alt="Model architecture: encoder, decoder, and iterative refinement"
+               onerror="this.parentNode.remove();">
+          <figcaption>
+            Overall architecture, encoder, decoder, and the iterative refinement loop.
+          </figcaption>
+        </figure>
+
         <h2>Atomic-level conditioning</h2>
         <p>
           RNA rarely acts alone. Much of its function happens at interfaces with proteins,
@@ -97,10 +113,33 @@
           RNA&ndash;protein complex interfaces.
         </p>
 
+        <h2>A held-out case</h2>
+        <p>
+          On the held-out structure PDB&nbsp;9T74, the designed sequence reconstructs plausible
+          local all-atom geometry, with contacts placed where the reference structure puts
+          them. This supports local geometric plausibility only &mdash; it does not establish
+          affinity, specificity, or function.
+        </p>
+
+        <div class="figure-pair">
+          <figure class="project-figure">
+            <img src="../../assets/works/rna-diffusion/case-overlay.jpg"
+                 alt="Whole-complex overlay of prediction and reference for PDB 9T74"
+                 onerror="this.parentNode.remove();">
+            <figcaption>Whole-complex overlay, prediction against reference.</figcaption>
+          </figure>
+          <figure class="project-figure is-plate">
+            <img src="../../assets/works/rna-diffusion/case-interface.jpg"
+                 alt="Interface close-up for PDB 9T74"
+                 onerror="this.parentNode.remove();">
+            <figcaption>Interface close-up.</figcaption>
+          </figure>
+        </div>
+
         <h2>Status</h2>
         <p>
-          Ongoing. The model is built and training; benchmarking and wet-lab validation are
-          in progress.
+          Ongoing. The data split, model, and interface-aware evaluation are in place;
+          benchmarking and wet-lab validation are in progress.
         </p>
 
       </div>
