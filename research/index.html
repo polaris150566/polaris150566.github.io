@@ -113,9 +113,10 @@
             <p class="eyebrow">Statistical Energy</p>
             <h3>Statistical energy functions for design evaluation</h3>
             <p class="research-summary">
-              A Mixture Density Network predicting statistical energy functions to screen
-              <em>de novo</em> protein designs, with an RNN predicting pairwise residue
-              energies autoregressively. Built the decoy-generation pipeline on SAbDab and PPI.
+              A statistical energy model independent of generative priors and force fields:
+              joint distributions of local geometric features learned from experimental
+              structures, with an autoregressive RNN density network. Native structures
+              already score below redesigned decoys at the residue-pair level.
             </p>
             <div class="tag-list">
               <span>Mixture Density Network</span><span>AlphaFold 3</span><span>ProteinMPNN</span>
