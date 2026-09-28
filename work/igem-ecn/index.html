@@ -85,12 +85,36 @@
           <figcaption>Overall design concept.</figcaption>
         </figure>
 
+        <h2>Binder selection</h2>
+        <p>
+          Before building anything, we needed to know <em>what</em> to display. We collected
+          <strong>eight VEGF-binding molecules</strong> reported in the literature &mdash;
+          including VEGFR1D2, engineered albumin-binding domains, and several VEGF-binding
+          affibody variants &mdash; and compared them on affinity, size, and known structure.
+          Because the binders must fold inside the <em>E.&nbsp;coli</em> periplasm or on the
+          outer membrane, we used <strong>AlphaFold-predicted structures to filter out
+          candidates unlikely to express in EcN</strong>. The verified set was released as an
+          iGEM Part Collection for future teams.
+        </p>
+
         <h2>Surface display</h2>
         <p>
-          Screened <strong>four surface-display systems</strong> by fusing each to mCherry and
-          imaging localization with confocal microscopy, then validated the VEGF-binding
-          capacity of the selected candidates by <strong>ELISA</strong>. Display efficiency and
-          retained binding activity are separate problems, so both had to be measured.
+          We designed and tested <strong>five surface-display systems</strong> &mdash; AIDA,
+          OmpA, INP, LppOmpA, and intimin &mdash; by fusing each to mCherry and imaging
+          localization with confocal microscopy. Not all of them worked: LppOmpA and intimin
+          never transformed successfully into EcN, and AIDA showed no fluorescence with a
+          fragmented signal, leaving <strong>OmpA and INP as the workable anchors</strong>.
+          For both, membrane fractions were extracted and run on SDS-PAGE to confirm the
+          fusion proteins were actually present.
+        </p>
+        <p>
+          The next bottleneck was at the construct level: when we built the VEGFR-like
+          binder-display plasmids on the pBBR backbone, <strong>only a minority transformed
+          into EcN</strong> &mdash; one INP-based and three OmpA-based constructs. Surface
+          display in this chassis is limited less by design than by transformability, which
+          is what the later modeling had to work around. Display efficiency and retained
+          binding activity are separate problems, so both were measured by
+          <strong>ELISA</strong>.
         </p>
 
         <figure class="project-figure is-plate">
@@ -118,10 +142,15 @@
         <h2>Tumor-responsive activation</h2>
         <p>
           Tumor colonization is a preference, not a guarantee, so we added a second layer of
-          specificity. The binding protein carries an <strong>MMP-responsive masking
-          peptide</strong>: matrix metalloproteinases are enriched in the tumor
-          microenvironment, so the mask is cleaved and the binder activated locally. Bacteria
-          that stray elsewhere stay inert, reducing off-target risk.
+          specificity. The mask itself is a <strong>competitive peptide that mimics the
+          VEGFR1D2 interface</strong>, designed in three variants and placed so that an
+          <strong>MMP14-cleavable linker</strong> sits between mask and binder: matrix
+          metalloproteinases are enriched in the tumor microenvironment, so there the mask is
+          cleaved and VEGFR1D2 recovers its binding surface, while bacteria that stray
+          elsewhere keep the binder blocked. The design followed consultations with Prof.
+          Shan Tang. Four masked VEGFR1D2 constructs were built by two-round PCR and
+          homologous recombination, and all four were confirmed at the expected band size
+          and by sequencing.
         </p>
 
         <figure class="project-figure is-plate">
@@ -138,9 +167,7 @@
                  onerror="this.parentNode.parentNode.remove();">
           </a>
           <figcaption>
-            Colony-PCR verification of the four masked VEGFR1D2 constructs, built by two-round
-            PCR and homologous recombination. All four yielded clones at the expected band size
-            and were confirmed by sequencing.
+            Colony-PCR verification of the four masked VEGFR1D2 constructs.
             <a href="../../assets/works/igem-ecn/masking-verification_full.jpg" target="_blank" rel="noopener">View full size</a>.
           </figcaption>
         </figure>
@@ -167,6 +194,18 @@
           </figure>
         </div>
 
+        <h2>Contribution</h2>
+        <p>
+          To make bacterial therapy reproducible for the community, we co-authored the
+          <strong>2024 EcN White Paper</strong> with seven other iGEM teams, covering chassis
+          characterization, expression systems, and therapeutic applications of
+          <em>E.&nbsp;coli</em> Nissle 1917; our team contributed the application chapter.
+          The verified binder set was also released as an
+          <a href="https://2024.igem.wiki/ustc/parts" target="_blank" rel="noopener">iGEM Part Collection</a>.
+          The full project documentation is on the
+          <a href="https://2024.igem.wiki/ustc" target="_blank" rel="noopener">official iGEM wiki</a>.
+        </p>
+
         <h2>Modeling</h2>
         <p>
           Built a <strong>finite element model in Python</strong> simulating
@@ -191,6 +230,7 @@
         <h4>Methods</h4>
         <div class="tag-list" style="margin-top:0">
           <span>Surface display</span>
+          <span>AlphaFold screening</span>
           <span>ELISA</span>
           <span>Confocal microscopy</span>
           <span>mCherry fusion</span>
