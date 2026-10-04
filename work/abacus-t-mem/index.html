@@ -141,6 +141,96 @@
           learning rather than a few homologous outliers inflating the mean.
         </p>
 
+        <h3>From sequences to membranes: experimental validation</h3>
+        <p>
+          Recovery percentages only mean something if the model can survive a wet lab, so we
+          took the pipeline to cells. <strong>De novo backbones were designed with
+          SCUBA-T</strong>, and ABACUS-T-Mem designed sequences onto them. Rather than
+          trusting the generative output directly, we imposed a rational screening funnel:
+          candidate structures were folded with <strong>AlphaFold&nbsp;3</strong> to confirm
+          the design sequence still supports the intended fold; the
+          <strong>WY-ring</strong> aromatic cluster was checked explicitly; the
+          <strong>positive-inside rule</strong> was used to verify loop topology; and
+          <strong>interface hydrophobicity</strong> was scored against native membrane
+          proteins. <strong>Forty-plus sequences</strong> passed the full funnel, and two
+          were taken forward into cell expression.
+        </p>
+        <p>
+          <strong>Both successfully reached the membrane.</strong> Membrane localization was
+          confirmed independently by <strong>fluorescence microscopy</strong> and
+          <strong>flow cytometry</strong> &mdash; a 2-for-2 hit rate, from a design model to
+          proteins sitting in a membrane, end to end.
+        </p>
+
+        <figure class="project-figure is-plate">
+          <svg viewBox="0 0 960 300" role="img" aria-label="Design-to-validation pipeline: SCUBA-T backbones, ABACUS-T-Mem sequence design, four-stage screening, two sequences expressed in cells, both membrane-localized" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block">
+            <defs>
+              <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" fill="#6ba8e8"/>
+              </marker>
+            </defs>
+            <!-- row 1 -->
+            <g font-family="Inter,system-ui,sans-serif">
+              <!-- box 1 -->
+              <rect x="16" y="30" width="180" height="86" rx="10" fill="#1b2027" stroke="#2b323b"/>
+              <text x="106" y="62" text-anchor="middle" fill="#e6eaef" font-size="16" font-weight="600">SCUBA-T</text>
+              <text x="106" y="84" text-anchor="middle" fill="#949ca7" font-size="12.5">de novo membrane</text>
+              <text x="106" y="101" text-anchor="middle" fill="#949ca7" font-size="12.5">backbones</text>
+              <line x1="200" y1="73" x2="248" y2="73" stroke="#6ba8e8" stroke-width="1.6" marker-end="url(#arr)"/>
+              <!-- box 2 -->
+              <rect x="252" y="30" width="196" height="86" rx="10" fill="#1b2027" stroke="#2b323b"/>
+              <text x="350" y="62" text-anchor="middle" fill="#e6eaef" font-size="16" font-weight="600">ABACUS-T-Mem</text>
+              <text x="350" y="84" text-anchor="middle" fill="#949ca7" font-size="12.5">sequence design on</text>
+              <text x="350" y="101" text-anchor="middle" fill="#949ca7" font-size="12.5">the backbones</text>
+              <line x1="452" y1="73" x2="500" y2="73" stroke="#6ba8e8" stroke-width="1.6" marker-end="url(#arr)"/>
+              <!-- box 3: screening funnel -->
+              <rect x="504" y="30" width="230" height="86" rx="10" fill="#1b2027" stroke="#2b323b"/>
+              <text x="619" y="56" text-anchor="middle" fill="#e6eaef" font-size="16" font-weight="600">Screening funnel</text>
+              <text x="619" y="76" text-anchor="middle" fill="#8fc0f2" font-size="12.5">AF3 refold &#183; WY-ring</text>
+              <text x="619" y="93" text-anchor="middle" fill="#8fc0f2" font-size="12.5">positive-inside rule</text>
+              <text x="619" y="110" text-anchor="middle" fill="#8fc0f2" font-size="12.5">interface hydrophobicity</text>
+              <line x1="738" y1="73" x2="786" y2="73" stroke="#6ba8e8" stroke-width="1.6" marker-end="url(#arr)"/>
+              <!-- box 4 -->
+              <rect x="790" y="30" width="154" height="86" rx="10" fill="#1b2027" stroke="#6ba8e8"/>
+              <text x="867" y="62" text-anchor="middle" fill="#e6eaef" font-size="16" font-weight="600">40+ sequences</text>
+              <text x="867" y="84" text-anchor="middle" fill="#949ca7" font-size="12.5">passed all filters</text>
+            </g>
+            <!-- connector down -->
+            <path d="M 867 120 L 867 152" stroke="#6ba8e8" stroke-width="1.6" marker-end="url(#arr)" fill="none"/>
+            <!-- row 2 -->
+            <g font-family="Inter,system-ui,sans-serif">
+              <rect x="540" y="158" width="404" height="112" rx="10" fill="#1b2027" stroke="#2b323b"/>
+              <text x="742" y="188" text-anchor="middle" fill="#e6eaef" font-size="16" font-weight="600">2 sequences &#8594; cell expression</text>
+              <text x="742" y="214" text-anchor="middle" fill="#8fc0f2" font-size="13.5">both reached the membrane (2/2)</text>
+              <text x="742" y="238" text-anchor="middle" fill="#949ca7" font-size="12.5">fluorescence microscopy &#183; flow cytometry</text>
+            </g>
+            <!-- membrane icon -->
+            <g font-family="Inter,system-ui,sans-serif">
+              <rect x="40" y="176" width="420" height="10" rx="5" fill="#2b323b"/>
+              <g stroke="#6ba8e8" stroke-width="2.4" stroke-linecap="round">
+                <line x1="90"  y1="181" x2="90"  y2="151"/>
+                <line x1="180" y1="181" x2="180" y2="151"/>
+                <line x1="270" y1="181" x2="270" y2="151"/>
+                <line x1="380" y1="181" x2="380" y2="151"/>
+              </g>
+              <g fill="#8fc0f2">
+                <circle cx="90"  cy="145" r="6"/>
+                <circle cx="180" cy="145" r="6"/>
+                <circle cx="270" cy="145" r="6"/>
+                <circle cx="380" cy="145" r="6"/>
+              </g>
+              <text x="250" y="230" text-anchor="middle" fill="#949ca7" font-size="12.5">designed proteins embedded in the membrane</text>
+            </g>
+          </svg>
+          <figcaption>
+            Design-to-validation pipeline: SCUBA-T generates de novo backbones,
+            ABACUS-T-Mem designs sequences onto them, a four-stage screen
+            (AF3 refolding, WY-ring, positive-inside rule, interface hydrophobicity)
+            keeps 40+ candidates, and two sequences taken into cell expression both
+            reach the membrane, confirmed by fluorescence microscopy and flow cytometry.
+          </figcaption>
+        </figure>
+
         <h2>What did not work, and why it mattered</h2>
         <p>
           Two problems survived fine-tuning: leucine was over-generated, and W/Y remained too
@@ -196,6 +286,9 @@
         <h4>Methods</h4>
         <div class="tag-list" style="margin-top:0">
           <span>ABACUS-T</span>
+          <span>SCUBA-T</span>
+          <span>AlphaFold 3</span>
+          <span>Flow cytometry</span>
           <span>PDBTM</span>
           <span>TMDET 4.0</span>
           <span>RBF encoding</span>
