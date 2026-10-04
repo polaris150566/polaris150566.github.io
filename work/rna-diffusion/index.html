@@ -96,11 +96,14 @@
         </p>
 
         <figure class="project-figure is-plate">
-          <img src="../../assets/works/rna-diffusion/architecture.jpg"
-               alt="Model architecture: encoder, decoder, and iterative refinement"
+          <img src="../../assets/works/rna-diffusion/architecture.png"
+               alt="RiboDiffusion2 architecture: structure encoder, sequence decoder with sequence and all-atom feedback, edge-feature construction, and decoder tensor flow"
                onerror="this.parentNode.remove();">
           <figcaption>
-            Overall architecture, encoder, decoder, and the iterative refinement loop.
+            Overall architecture <strong>(A)</strong>: a structure encoder feeds a parallel
+            sequence decoder, with sequence and all-atom feedback loops;
+            <strong>(B)</strong> how edge features are built from residue&ndash;neighbor
+            geometry; <strong>(C)</strong> tensor flow through the seven decoder layers.
           </figcaption>
         </figure>
 
