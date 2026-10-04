@@ -81,11 +81,13 @@
           around it, and the model has no way to revisit that decision.
         </p>
         <p>
-          I replaced that with a <strong>discrete diffusion framework</strong>. The sequence
-          starts fully masked and is denoised over multiple passes, so every position can be
-          revised in light of the others. This turns design into iterative refinement rather
-          than a single irreversible sweep, which suits a problem where nucleotide choices
-          are strongly coupled.
+          RiboDiffusion2 is my answer, written from scratch &mdash; the training pipeline,
+          the discrete diffusion process, and the decoder are all my own implementation. The
+          core is a <strong>discrete diffusion framework</strong>: the sequence starts fully
+          masked and is denoised over multiple passes, so every position can be revised in
+          light of the others. That turns design into iterative refinement rather than a
+          single irreversible sweep, which suits a problem where nucleotide choices are
+          strongly coupled.
         </p>
 
         <h2>Architecture</h2>
