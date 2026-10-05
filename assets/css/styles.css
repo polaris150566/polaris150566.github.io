@@ -331,9 +331,11 @@ img { display: block; max-width: 100%; }
   align-items: stretch;
   display: grid;
   gap: 28px;
-  grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.65fr);
-  padding: 8px 0 42px;
+  grid-template-columns: 1fr;
+  padding: 8px 0 28px;
 }
+
+.cv-profile + .cv-facts { margin-bottom: 42px; }
 
 .cv-profile-copy { align-self: center; }
 
